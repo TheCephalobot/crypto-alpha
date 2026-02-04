@@ -7,8 +7,9 @@
       "dependencies": {
         "@hono/node-server": "^1.13.7",
         "@lucid-agents/core": "^2.4.1",
-        "@lucid-agents/hono": "^0.9.1",
+        "@lucid-agents/hono": "^0.9.2",
         "@lucid-agents/http": "^1.10.0",
+        "@lucid-agents/payments": "^2.4.1",
         "zod": "^3.24.1",
       },
       "devDependencies": {
@@ -56,7 +57,7 @@
 
     "@lucid-agents/core": ["@lucid-agents/core@2.4.1", "", { "dependencies": { "@ax-llm/ax": "^14.0.37", "@ax-llm/ax-tools": "^14.0.37", "@lucid-agents/a2a": "^0.6.0", "@lucid-agents/payments": "^2.4.1", "@lucid-agents/types": "^1.6.0", "@lucid-dreams/agent-auth": "latest", "@lucid-dreams/client": "latest", "@x402/core": "^2.2.0", "@x402/evm": "^2.2.0", "@x402/fetch": "^2.2.0", "hono": "4.10.1", "viem": "^2.41.2", "zod": "^4.1.12" } }, "sha512-Xzam76fG5bpckqkPZyytFwa9HnuPoMz35+wygnGBrTvf4Qko8ytic70zq+0SAPdzrJqIlkIgHBwrQc2kId9TDA=="],
 
-    "@lucid-agents/hono": ["@lucid-agents/hono@0.9.1", "", { "dependencies": { "@lucid-agents/ap2": "^0.4.0", "@lucid-agents/core": "^2.4.1", "@lucid-agents/payments": "^2.4.1", "@lucid-agents/types": "^1.6.0", "@x402/core": "^2.2.0", "@x402/hono": "^2.2.0", "hono": "4.10.1", "zod": "^4.1.12" } }, "sha512-nZLq/4QSwFxLJcqhJsBDmig/LtDinI/F0wDl+yPchR4gRI8NxhmIMdAmW0RBkfRPYeCAreCQmgBF6eNp6Y3Leg=="],
+    "@lucid-agents/hono": ["@lucid-agents/hono@0.9.2", "", { "dependencies": { "@lucid-agents/ap2": "^0.4.0", "@lucid-agents/core": "^2.4.1", "@lucid-agents/payments": "^2.4.1", "@lucid-agents/types": "^1.6.0", "@x402/core": "^2.2.0", "@x402/hono": "^2.2.0", "hono": "4.10.1", "zod": "^4.1.12" } }, "sha512-Ols2EOPpBnHhi5u3oyoAtX3gICGb1V77N6Y0CKQNWQS4VcSZRWSkaxY50G80V0UAJfI5ZIWFx/dxDzxn5cKwaw=="],
 
     "@lucid-agents/http": ["@lucid-agents/http@1.10.0", "", { "dependencies": { "@lucid-agents/types": "^1.6.0", "hono": "4.10.1" }, "peerDependencies": { "zod": "^4.0.0" } }, "sha512-XG+XH7N7LCZSkKSeII98W68GPsXD0zFiVl1NtTIW1H1nbEeJCa8fYtFhrL4z074HDTlX3UTgH5VqsfwoANbIjQ=="],
 
