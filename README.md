@@ -76,7 +76,7 @@ Payments disabled until @lucid-agents/hono SDK fix. When enabled:
 
 ## Wallet
 
-Agent receives payments to: `0x2DC32ba249092C27fAEDBAf245999eFBca135dDD` 
+Agent receives payments to the configured `PAYMENTS_RECEIVABLE_ADDRESS` 
 
 ---
 
