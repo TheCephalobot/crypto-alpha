@@ -76,7 +76,7 @@ Payments disabled until @lucid-agents/hono SDK fix. When enabled:
 
 ## Wallet
 
-Agent receives payments to: `0x2DC32ba249092C27fAEDBAf245999eFBca135dDD` (Squiddy's Base wallet)
+Agent receives payments to: `0x2DC32ba249092C27fAEDBAf245999eFBca135dDD` 
 
 ---
 
