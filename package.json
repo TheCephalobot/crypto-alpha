@@ -1,0 +1,23 @@
+{
+  "name": "crypto-alpha-agent",
+  "version": "1.0.0",
+  "description": "Crypto alpha research agent - market signals, narratives, and whale tracking",
+  "type": "module",
+  "main": "src/index.ts",
+  "scripts": {
+    "dev": "bun run src/index.ts",
+    "start": "bun run src/index.ts",
+    "build": "tsc"
+  },
+  "dependencies": {
+    "@lucid-agents/core": "^2.4.1",
+    "@lucid-agents/http": "^1.10.0",
+    "@lucid-agents/hono": "^0.9.1",
+    "@hono/node-server": "^1.13.7",
+    "zod": "^3.24.1"
+  },
+  "devDependencies": {
+    "@types/node": "^22.10.5",
+    "typescript": "^5.7.2"
+  }
+}
