@@ -235,7 +235,7 @@ async function main() {
       output: {
         status: 'alive',
         agent: 'Crypto Alpha 📊',
-        version: '1.0.0',
+        version: '1.1.0',
         by: 'CephaloBot 🐙',
         timestamp: new Date().toISOString()
       }
