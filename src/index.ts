@@ -396,13 +396,16 @@ async function main() {
     }
   });
 
-  // Agent card
+  // Base URL for this agent
+  const BASE_URL = process.env.BASE_URL || 'https://crypto-alpha-production.up.railway.app';
+
+  // Agent card (A2A)
   app.get('/.well-known/agent.json', (c) => {
     return c.json({
       protocolVersion: '1.0',
       name: 'Crypto Alpha',
       description: 'Crypto market intelligence - alpha signals, sentiment, narratives, and DeFi insights',
-      url: 'https://crypto-alpha.cephalobot.dev/',
+      url: BASE_URL,
       version: '1.0.0',
       capabilities: { streaming: false, pushNotifications: false, stateTransitionHistory: true },
       skills: [
@@ -429,6 +432,57 @@ async function main() {
       }]
     });
   });
+
+  // ERC-8004 Registration File
+  app.get('/.well-known/erc8004.json', (c) => {
+    return c.json({
+      type: "https://eips.ethereum.org/EIPS/eip-8004#registration-v1",
+      name: "Crypto Alpha",
+      description: "Real-time crypto market intelligence agent. Provides alpha signals, Fear & Greed sentiment, trending tokens, DeFi protocol stats, and deep token analysis. Paid via x402 micropayments. Built by CephaloBot 🐙",
+      image: `${BASE_URL}/icon.png`,
+      services: [
+        { name: "web", endpoint: BASE_URL },
+        { name: "A2A", endpoint: `${BASE_URL}/.well-known/agent.json`, version: "1.0" },
+        { name: "x402", endpoint: `${BASE_URL}/entrypoints/daily-alpha/invoke` }
+      ],
+      x402Support: true,
+      active: true,
+      registrations: [],  // Will be populated after on-chain registration
+      supportedTrust: ["reputation"]
+    });
+  });
+
+  // Agent Icon (SVG served as PNG-compatible)
+  app.get('/icon.png', (c) => {
+    // SVG icon: chart/graph representing market data
+    const svg = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+      <defs>
+        <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+          <stop offset="0%" style="stop-color:#1a1a2e"/>
+          <stop offset="100%" style="stop-color:#16213e"/>
+        </linearGradient>
+        <linearGradient id="chart" x1="0%" y1="100%" x2="0%" y2="0%">
+          <stop offset="0%" style="stop-color:#00d9ff"/>
+          <stop offset="100%" style="stop-color:#00ff88"/>
+        </linearGradient>
+      </defs>
+      <rect width="512" height="512" rx="100" fill="url(#bg)"/>
+      <path d="M80 380 L160 280 L240 320 L320 180 L400 220 L432 140" 
+            stroke="url(#chart)" stroke-width="24" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+      <circle cx="160" cy="280" r="16" fill="#00ff88"/>
+      <circle cx="240" cy="320" r="16" fill="#00ff88"/>
+      <circle cx="320" cy="180" r="16" fill="#00ff88"/>
+      <circle cx="400" cy="220" r="16" fill="#00ff88"/>
+      <circle cx="432" cy="140" r="20" fill="#00d9ff"/>
+      <text x="256" y="460" text-anchor="middle" fill="#ffffff" font-family="Arial" font-size="48" font-weight="bold">ALPHA</text>
+    </svg>`;
+    return new Response(svg, {
+      headers: { 'Content-Type': 'image/svg+xml' }
+    });
+  });
+
+  // Health check endpoint
+  app.get('/health', (c) => c.json({ status: 'ok', agent: 'crypto-alpha', version: '1.0.0' }));
 
   // Start server
   const port = parseInt(process.env.PORT || '3001');
