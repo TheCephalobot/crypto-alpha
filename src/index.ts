@@ -26,7 +26,8 @@ const SourcesSchema = z.object({
 });
 
 // Environment config
-const NETWORK = process.env.NETWORK || 'eip155:84532';
+type NetworkId = `${string}:${string}`;
+const NETWORK = (process.env.NETWORK || 'eip155:84532') as NetworkId;
 const PAY_TO = process.env.PAYMENTS_RECEIVABLE_ADDRESS || '';
 const FACILITATOR_URL = process.env.FACILITATOR_URL || 'https://facilitator.daydreams.systems';
 
@@ -192,22 +193,22 @@ async function main() {
   // Payment routes configuration
   const paidRoutes = {
     'POST /entrypoints/daily-alpha/invoke': {
-      accepts: { scheme: 'exact' as const, payTo: PAY_TO, price: '5000', network: NETWORK as `${string}:${string}` },
+      accepts: { scheme: 'exact' as const, payTo: PAY_TO, price: '5000', network: NETWORK },
       description: 'Full alpha digest',
       mimeType: 'application/json'
     },
     'POST /entrypoints/trending/invoke': {
-      accepts: { scheme: 'exact' as const, payTo: PAY_TO, price: '2000', network: NETWORK as `${string}:${string}` },
+      accepts: { scheme: 'exact' as const, payTo: PAY_TO, price: '2000', network: NETWORK },
       description: 'Trending tokens',
       mimeType: 'application/json'
     },
     'POST /entrypoints/defi-stats/invoke': {
-      accepts: { scheme: 'exact' as const, payTo: PAY_TO, price: '2000', network: NETWORK as `${string}:${string}` },
+      accepts: { scheme: 'exact' as const, payTo: PAY_TO, price: '2000', network: NETWORK },
       description: 'DeFi stats',
       mimeType: 'application/json'
     },
     'POST /entrypoints/token-intel/invoke': {
-      accepts: { scheme: 'exact' as const, payTo: PAY_TO, price: '3000', network: NETWORK as `${string}:${string}` },
+      accepts: { scheme: 'exact' as const, payTo: PAY_TO, price: '3000', network: NETWORK },
       description: 'Token intelligence',
       mimeType: 'application/json'
     }
