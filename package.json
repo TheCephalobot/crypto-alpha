@@ -11,10 +11,10 @@
   },
   "dependencies": {
     "@hono/node-server": "^1.13.7",
-    "@lucid-agents/core": "^2.4.1",
-    "@lucid-agents/hono": "^0.9.2",
-    "@lucid-agents/http": "^1.10.0",
-    "@lucid-agents/payments": "^2.4.1",
+    "@lucid-agents/core": "^2.5.0",
+    "@lucid-agents/hono": "^0.9.6",
+    "@lucid-agents/http": "^1.10.2",
+    "@lucid-agents/payments": "^2.5.0",
     "@x402/evm": "^2.2.0",
     "zod": "4"
   },
